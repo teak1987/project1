@@ -21,22 +21,22 @@
 
 
 	<div class="container-fluid">
-		<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top"> <a
-			class="navbar-brand" href="#">Logo For The Site</a>
+		<nav class="navbar navbar-expand-md bg-dark  navbar-dark sticky-top"> <a
+			class="navbar-brand nav-color" href="#">Logo For The Site</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link"
+				<li class="nav-item"><a class="nav-link nav-color"
 					href="${contexRoot}/home">Home</a></li>
-				<li class="nav-item"><a class="nav-link"
+				<li class="nav-item"><a class="nav-link nav-color"
 					href="${contexRoot}/about">About</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+				<li class="nav-item"><a class="nav-link nav-color" href="#">Link</a></li>
 			</ul>
 			
-			<a style="margin-left:80%;" class="nav-link"href="${contexRoot}/add-status">Add Status</a>
+			<a style="margin-left:80%;" class="nav-link nav-color" href="${contexRoot}/add-status">Add Status</a>
 		</div>
 
 	 </nav>
