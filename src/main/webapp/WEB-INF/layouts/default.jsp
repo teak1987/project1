@@ -18,33 +18,39 @@
 
 </head>
 <body>
-<div class="container-fluid">
-	<nav class="navbar navbar-expand-md navbar-light bg-light"> 
-	<a class="navbar-brand" href="#">Logo</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse"
-		data-target="#navbarText" aria-controls="navbarText"
-		aria-expanded="false" scr="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarText">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="${contexRoot}/home">Home</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="${contexRoot}/about">About</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-		</ul>
-		<span class="navbar-text"> <a class="nav-link" href="#">Profile</a></span>
+
+
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top"> <a
+			class="navbar-brand" href="#">Logo For The Site</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					href="${contexRoot}/home">Home</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${contexRoot}/about">About</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+			</ul>
+			
+			<a style="margin-left:80%;" class="nav-link"href="${contexRoot}/add-status">Add Status</a>
+		</div>
+
+	 </nav>
 	</div>
-	</nav>
+	
+	<div class="container">
+		<tiles:insertAttribute name="content" />
+	</div>
 
 
-	<tiles:insertAttribute name="content" />
-
-
-</div>
 	<!------------ -Bootstrap ---------------->
+	  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
      <script src="${contexRoot}/js/bootstrap.min.js"></script>
+        <script src="${contexRoot}/js/bootstrap.bundle.min.js"></script>
 	<!-- -----------My JavaScript --------------->	
      <script src="${contexRoot}/js/main.js"></script>
 
