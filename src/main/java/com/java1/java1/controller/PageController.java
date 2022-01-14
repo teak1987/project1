@@ -2,9 +2,13 @@ package com.java1.java1.controller;
 
 import java.util.Date;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,20 +42,22 @@ public class PageController {
 	
 
 	@RequestMapping(method=RequestMethod.GET,value = "/add-status" )
-	ModelAndView addStatus(ModelAndView model) {
+	ModelAndView addStatus(ModelAndView model, @ModelAttribute("statusUpdate") StatusUpdate statusUpdate) {
 		model.setViewName("app.addStatus");
-		StatusUpdate statusUpdate = new StatusUpdate();
 		StatusUpdate latestStatusUpdate = statusUpdateService.getLatest();
-		model.getModel().put("statusUpdate", statusUpdate);
 		model.getModel().put("latestStatusUpdate", latestStatusUpdate);
 		return model;
 	}
 	
 	
 	@RequestMapping(method=RequestMethod.POST,value = "/add-status" )
-	ModelAndView addStatus(ModelAndView model, StatusUpdate statusUpdate) {
+	ModelAndView addStatus(ModelAndView model, @Valid StatusUpdate statusUpdate, BindingResult result) {
 		model.setViewName("app.addStatus");
-	    statusUpdateService.save(statusUpdate);	    
+		if(!result.hasErrors()) {
+			 statusUpdateService.save(statusUpdate);
+			 model.getModel().put("statusUpdate", new StatusUpdate());
+		}
+	       
 		StatusUpdate latestStatusUpdate = statusUpdateService.getLatest();
 		model.getModel().put("latestStatusUpdate", latestStatusUpdate);
 		return model;
