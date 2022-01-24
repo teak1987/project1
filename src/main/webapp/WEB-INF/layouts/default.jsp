@@ -34,10 +34,22 @@
 				<li class="nav-item"><a class="nav-link nav-color"
 					href="${contexRoot}/about">About</a></li>
 				<li class="nav-item"><a class="nav-link nav-color" href="#">Link</a></li>
+				<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Status
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="${contexRoot}/add-status">Add Status</a>
+          <a class="dropdown-item" href="${contexRoot}/view-status">View Status</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
 			</ul>
 			
-			<a style="margin-left:80%;" class="nav-link nav-color" href="${contexRoot}/add-status">Add Status</a>
+			<%-- <a style="margin-left:80%;" class="nav-link nav-color" href="${contexRoot}/add-status">Add Status</a> --%>
+			
 		</div>
+		
 
 	 </nav>
 	</div>
