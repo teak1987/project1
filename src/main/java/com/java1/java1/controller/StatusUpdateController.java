@@ -54,6 +54,34 @@ public class StatusUpdateController {
 		return model;
 	}
 	
+	@RequestMapping(method=RequestMethod.GET, value="/delete-status")
+	ModelAndView deleteStatus(ModelAndView model,@RequestParam(name="id") Long id) {
+		statusUpdateService.delete(id);
+		model.setViewName("redirect:/view-status");
+		return model;
+		
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/edit-status")
+	ModelAndView editStatus(ModelAndView model,@RequestParam(name="id") Long id) {
+	    StatusUpdate statusUpdate = statusUpdateService.get(id);
+	    model.getModel().put("statusUpdate", statusUpdate);
+		model.setViewName("app.editStatus");
+		return model;
+		
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/edit-status")
+	ModelAndView editStatus(ModelAndView model,@Valid StatusUpdate statusUpdate, BindingResult result) {
+		model.setViewName("app.editStatus");
+        if(!result.hasErrors()) {
+        	statusUpdateService.save(statusUpdate);
+    		model.setViewName("redirect:/view-status");
+        }
+		return model;
+		
+	}
+	
 	
 	
 }

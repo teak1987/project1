@@ -31,6 +31,15 @@ public class StatusUpdateService {
 		  PageRequest request = PageRequest.of(pageNumber-1, PAGESIZE, Sort.Direction.DESC, "added");
 	      return statusUpdateDao.findAll(request); 
 	 }
+
+	public void delete(Long id) {
+		statusUpdateDao.deleteById(id);
+		
+	}
+
+	public StatusUpdate get(Long id) {
+		return statusUpdateDao.findById(id).get();
+	}
 	 
 
 
