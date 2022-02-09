@@ -8,29 +8,24 @@
 	<div class="col-md-8 col-md-offset-2">
 		<div class="card">
 			<div class="card-header" style="background-color:#90EE90">
-				<h6>Add A Status Update</h6>
+				<h6>Edit Status Update</h6>
 			</div>
 			<div class="card-body">
 			<!--  ======== Form ================= -->
 				<form:form modelAttribute="statusUpdate">
+				   <form:input type="hidden" path="id" />
+				    <form:input type="hidden" path="added" />
 				   <div class="errors">
 				       <form:errors path="text" />
+				        <form:errors path="id" />
+				         <form:errors path="added" />
 				   </div>
 					<div class="form-group">
 						<form:textarea class="form-control" path="text" name="text" cols="5" rows="10"></form:textarea>
 					</div>
-					<input type="submit" name="submit" class="btn btn-primary mb-2" style="margin-left:5px;" value="Submit"> 
+					<input type="submit" name="submit" class="btn btn-primary mb-2" style="margin-left:5px;" value="Save"> 
 				</form:form>
 				<!--  ======== End Form ================= -->
-			</div>
-		</div>
-	
-		<div class="card mt-5">
-			<div class="card-header" style="background-color:#90EE90">
-				<h6>Status update added on <fmt:formatDate pattern="EEEE d MMMM y 'at' H:mm:s" value="${latestStatusUpdate.added}" /></h6>
-			</div>
-			<div class="card-body">
-                <p style="margin-left:10px;">${latestStatusUpdate.text}</p>
 			</div>
 		</div>
 	</div>

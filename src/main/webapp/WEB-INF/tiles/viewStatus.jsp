@@ -8,19 +8,26 @@
 
 <div class="row">
 	<div class="col-md-8 col-md-offset-2 mt-5">
-		
+		<!--  ==========  Pagination  =========---->
 		<pagin:pagination url="${url}" page="${page}" size="${size}" />
+		<!--  ==========  End Pagination  =========---->
 		
 		
 		<c:forEach var="statusUpdate" items="${page.content}">
-		<div class="card">
-			<div class="card-header">Status Update added on
-			<fmt:formatDate pattern="EEEE d MMMM y 'at' H:mm:s" value="${statusUpdate.added}" />
+		 <c:url var="editLink" value="/edit-status?id=${statusUpdate.id}" />
+		 <c:url var="deleteLink" value="/delete-status?id=${statusUpdate.id}" />
+			<div class="card">
+				<div class="card-header">
+					Status Update added on
+					<fmt:formatDate pattern="EEEE d MMMM y 'at' H:mm:s" value="${statusUpdate.added}" />
+				</div>
+				<div class="card-body">
+					<div>${statusUpdate.text}</div>
+					<div class="pull-right">
+						<a href="${editLink}">edit</a> | <a onclick="return confirm('Really delete this status update?');" href="${deleteLink}">delete</a>
+					</div>
+				</div>
 			</div>
-			<div class="card-body">			
-			    <p><c:out value="${statusUpdate.text}" /></p>			
-			</div>						
-		</div>
 		</c:forEach>	
 	</div>
 </div>
